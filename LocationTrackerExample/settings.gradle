@@ -1,0 +1,2 @@
+rootProject.name='LocationTrackerTest2'
+include ':app'
