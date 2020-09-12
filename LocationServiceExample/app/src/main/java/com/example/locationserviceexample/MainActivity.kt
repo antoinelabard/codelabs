@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-//        requestPermissionsIfNecessary()
 
         val intent = Intent(applicationContext, GpsService::class.java)
 
