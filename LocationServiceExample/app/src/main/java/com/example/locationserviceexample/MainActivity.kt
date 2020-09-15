@@ -46,21 +46,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun requestPermissionsIfNecessary(permissions: Array<String>) {
-        val permissionsToRequest: ArrayList<String> = arrayListOf()
-        for (permission in permissions) {
-            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-                permissionsToRequest.add(permission)
-            }
-        }
-        if (permissionsToRequest.size > 0) {
-            ActivityCompat.requestPermissions(
-                this,
-                permissionsToRequest.toArray(arrayOf<String>()),
-                REQUEST_CODE_PERMISSION
-            )
-        }
-    }
     private fun createNotificationChannel() {
         val CHANNEL_ID = "1"
 
