@@ -1,19 +1,19 @@
 package com.example.serviceexample
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.Service
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.IBinder
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import java.util.*
 
 
 class SimpleService : Service() {
 
     val CHANNEL_ID = "1"
+
+
 
     override fun onCreate() {
         Toast.makeText(this, "Service Created", Toast.LENGTH_LONG).show()
@@ -28,6 +28,11 @@ class SimpleService : Service() {
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setOngoing(true).build()
         startForeground(1001, notification)
+
+        val intent = Intent("anEvent")
+        intent.putExtra("key", Date().toString())
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+
         return START_STICKY
     }
 

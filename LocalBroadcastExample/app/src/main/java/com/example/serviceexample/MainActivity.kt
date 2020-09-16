@@ -2,15 +2,16 @@ package com.example.serviceexample
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.ComponentName
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.ServiceConnection
+import android.content.IntentFilter
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.IBinder
+import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         createNotificationChannel()
 
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+            ExampleReceiver,
+            IntentFilter("anEvent")
+        );
+
         start.setOnClickListener {
             Intent(this, SimpleService::class.java).also { intent -> startService(intent) }
         }
@@ -29,6 +35,18 @@ class MainActivity : AppCompatActivity() {
             stopService(Intent(applicationContext, SimpleService::class.java))
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(ExampleReceiver)
+    }
+
+    private val ExampleReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            textview.text = intent.getStringExtra("key")
+        }
+    }
+
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT
