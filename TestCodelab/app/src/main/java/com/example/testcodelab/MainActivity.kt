@@ -1,7 +1,6 @@
 package com.example.testcodelab
 
 import android.app.Activity
-import android.icu.lang.UCharacter.DecompositionType.SUB
 import android.os.Bundle
 import android.util.Log
 import android.view.View
