@@ -1,11 +1,13 @@
 package com.example.testcodelab
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 /*
@@ -49,6 +51,10 @@ class MainActivity : Activity() {
         mResultTextView = findViewById(R.id.operation_result_text_view)
         mOperandOneEditText = findViewById(R.id.operand_one_edit_text)
         mOperandTwoEditText = findViewById(R.id.operand_two_edit_text)
+
+        main_button.setOnClickListener {
+            startActivity(Intent(this, SecondaryActivity::class.java))
+        }
     }
 
     /**

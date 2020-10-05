@@ -1,6 +1,7 @@
 package com.example.testcodelab
 
 import android.content.Context
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.closeSoftKeyboard
 import androidx.test.espresso.Espresso.onView
@@ -24,6 +25,11 @@ class MainActivityTest : TestCase() {
     @Rule
     @JvmField
     val mActivityRule: ActivityScenarioRule<MainActivity> = ActivityScenarioRule(MainActivity::class.java)
+
+    @Test
+    fun isActivityInView() {
+        onView(withId(R.id.activity_main)).check(matches(isDisplayed()))
+    }
 
     @Test
     fun can_enter_number_One() {
