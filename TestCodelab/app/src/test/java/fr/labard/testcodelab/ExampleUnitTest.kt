@@ -1,4 +1,4 @@
-package com.example.testcodelab
+package fr.labard.testcodelab
 
 import org.junit.Test
 

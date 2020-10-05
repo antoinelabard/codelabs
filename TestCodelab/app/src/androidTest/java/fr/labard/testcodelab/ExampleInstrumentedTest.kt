@@ -1,4 +1,4 @@
-package com.example.testcodelab
+package fr.labard.testcodelab
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

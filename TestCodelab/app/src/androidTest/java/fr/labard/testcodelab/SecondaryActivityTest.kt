@@ -1,4 +1,4 @@
-package com.example.testcodelab
+package fr.labard.testcodelab
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches

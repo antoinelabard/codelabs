@@ -1,4 +1,4 @@
-package com.example.testcodelab
+package fr.labard.testcodelab
 
 /*
  * Copyright 2018, Google Inc.

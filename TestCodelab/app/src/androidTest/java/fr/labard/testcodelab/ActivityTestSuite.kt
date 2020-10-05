@@ -1,4 +1,4 @@
-package com.example.testcodelab
+package fr.labard.testcodelab
 
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
