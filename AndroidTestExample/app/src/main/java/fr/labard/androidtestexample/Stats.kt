@@ -1,4 +1,4 @@
-package com.example.androidtestexample
+package fr.labard.androidtestexample
 
 class Stats(private val array: Array<Int>) {
     fun getMean(): Double {
