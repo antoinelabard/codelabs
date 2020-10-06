@@ -1,4 +1,4 @@
-package com.example.alertdialogexample
+package fr.labard.alertdialogexample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

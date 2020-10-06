@@ -1,4 +1,4 @@
-package com.example.alertdialogexample
+package fr.labard.alertdialogexample
 
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity

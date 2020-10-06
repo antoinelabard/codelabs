@@ -1,4 +1,4 @@
-package com.example.alertdialogexample
+package fr.labard.alertdialogexample
 
 import org.junit.Test
 
