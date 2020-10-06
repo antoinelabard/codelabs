@@ -1,4 +1,4 @@
-package com.example.actionbarexample
+package fr.labard.actionbarexample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

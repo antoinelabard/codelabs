@@ -1,4 +1,4 @@
-package com.example.actionbarexample
+package fr.labard.actionbarexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

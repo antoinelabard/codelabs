@@ -1,4 +1,4 @@
-package com.example.actionbarexample
+package fr.labard.actionbarexample
 
 import org.junit.Test
 
