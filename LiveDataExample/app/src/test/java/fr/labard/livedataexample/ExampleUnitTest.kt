@@ -1,4 +1,4 @@
-package com.example.livedataexample
+package fr.labard.livedataexample
 
 import org.junit.Test
 
