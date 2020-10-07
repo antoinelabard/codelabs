@@ -1,14 +1,10 @@
-package com.example.foregroundserviceexample
+package fr.labard.foregroundserviceexample
 
-import android.app.Activity
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import android.os.Looper
 import android.util.Log
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import java.util.concurrent.TimeUnit
 

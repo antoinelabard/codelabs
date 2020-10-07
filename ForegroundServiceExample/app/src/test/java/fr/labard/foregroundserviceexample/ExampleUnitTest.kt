@@ -1,4 +1,4 @@
-package com.example.foregroundserviceexample
+package fr.labard.foregroundserviceexample
 
 import org.junit.Test
 

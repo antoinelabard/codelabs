@@ -1,4 +1,4 @@
-package com.example.foregroundserviceexample
+package fr.labard.foregroundserviceexample
 
 import android.Manifest
 import android.annotation.SuppressLint
