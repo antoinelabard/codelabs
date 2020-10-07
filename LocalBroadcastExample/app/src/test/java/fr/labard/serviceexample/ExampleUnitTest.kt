@@ -1,4 +1,4 @@
-package fr.example.serviceexample
+package fr.labard.serviceexample
 
 import org.junit.Test
 

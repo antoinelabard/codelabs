@@ -1,4 +1,4 @@
-package fr.example.serviceexample
+package fr.labard.serviceexample
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
