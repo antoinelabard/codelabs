@@ -1,4 +1,4 @@
-package com.example.locationtrackertest2
+package fr.labard.locationtrackertest2
 
 import org.junit.Test
 

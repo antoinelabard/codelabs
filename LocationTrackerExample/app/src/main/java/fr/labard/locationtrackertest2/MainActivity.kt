@@ -1,4 +1,4 @@
-package com.example.locationtrackertest2
+package fr.labard.locationtrackertest2
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,6 @@ import android.os.Looper
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
