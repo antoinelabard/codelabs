@@ -1,4 +1,4 @@
-package com.example.customnotificationexample
+package fr.labard.customnotificationexample
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
