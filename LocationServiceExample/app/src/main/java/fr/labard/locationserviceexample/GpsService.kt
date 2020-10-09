@@ -1,4 +1,4 @@
-package com.example.locationserviceexample
+package fr.labard.locationserviceexample
 
 import android.Manifest
 import android.app.Notification

@@ -1,4 +1,4 @@
-package com.example.locationserviceexample
+package fr.labard.locationserviceexample
 
 import org.junit.Test
 
