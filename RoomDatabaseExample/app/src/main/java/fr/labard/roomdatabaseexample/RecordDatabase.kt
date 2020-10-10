@@ -1,4 +1,4 @@
-package com.example.roomdatabaseexample
+package fr.labard.roomdatabaseexample
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
