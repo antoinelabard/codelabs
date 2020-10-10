@@ -1,4 +1,4 @@
-package com.example.osmdroidexample
+package fr.labard.osmdroidexample
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.osmdroidexample
+package fr.labard.osmdroidexample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
