@@ -1,31 +1,17 @@
 package com.example.android.architecture.blueprints.todoapp.tasks
 
-import android.app.usage.UsageEvents
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.android.architecture.blueprints.todoapp.Event
+import com.example.android.architecture.blueprints.todoapp.getOrAwaitValue
 import junit.framework.TestCase
-import org.hamcrest.CoreMatchers.*
+import org.hamcrest.CoreMatchers.not
+import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.`is`
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
-//import android.app.usage.UsageEvents
-//import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-//import androidx.lifecycle.Observer
-//import androidx.test.core.app.ApplicationProvider
-//import androidx.test.ext.junit.runners.AndroidJUnit4
-//import junit.framework.TestCase
-//import org.hamcrest.MatcherAssert.assertThat
-//import org.hamcrest.Matchers.not
-//import org.hamcrest.Matchers.nullValue
-//import org.junit.Rule
-//import org.junit.Test
-//import org.junit.runner.RunWith
-
 
 @RunWith(AndroidJUnit4::class)
 class TasksViewModelTest : TestCase() {
@@ -35,26 +21,26 @@ class TasksViewModelTest : TestCase() {
 
     @Test
     fun addNewTask_setsNewTaskEvent() {
+        // Given a fresh ViewModel
         val tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
+
+        // When adding a new task
         tasksViewModel.addNewTask()
 
-        // Create observer - no need for it to do anything!
-        val observer = Observer<Event<Unit>> {}
-        try {
+        // Then the new task event is triggered
+        val value = tasksViewModel.newTaskEvent.getOrAwaitValue()
 
-            // Observe the LiveData forever
-            tasksViewModel.newTaskEvent.observeForever(observer)
+        assertThat(value.getContentIfNotHandled(), not(nullValue()))
+    }
 
-            // When adding a new task
-            tasksViewModel.addNewTask()
+    @Test
+    fun setFilterAllTasks_tasksAddViewVisible() {
 
-            // Then the new task event is triggered
-            val value = tasksViewModel.newTaskEvent.value
-            assertThat(value?.getContentIfNotHandled(), (not(nullValue())))
+        val tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
 
-        } finally {
-            // Whatever happens, don't forget to remove the observer!
-            tasksViewModel.newTaskEvent.removeObserver(observer)
-        }
+        tasksViewModel.setFiltering((TasksFilterType.ALL_TASKS))
+
+        assertThat(tasksViewModel.tasksAddViewVisible.getOrAwaitValue(), `is`(true))
+
     }
 }
