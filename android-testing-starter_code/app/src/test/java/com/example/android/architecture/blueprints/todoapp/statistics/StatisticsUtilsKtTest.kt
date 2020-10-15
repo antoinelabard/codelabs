@@ -8,7 +8,7 @@ import org.junit.Test
 class StatisticsUtilsKtTest {
 
     @Test
-    fun getActiveAndCompletedStats_noCompleted_returnsHundredZero {
+    fun getActiveAndCompletedStats_noCompleted_returnsHundredZero() {
         val tasks = listOf(
                 Task("title", "desc", isCompleted = false)
         )
