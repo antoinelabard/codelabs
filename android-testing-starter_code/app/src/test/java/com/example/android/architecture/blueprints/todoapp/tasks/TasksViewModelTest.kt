@@ -9,6 +9,7 @@ import org.hamcrest.CoreMatchers.not
 import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,11 +20,16 @@ class TasksViewModelTest : TestCase() {
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
+    // Subject under test
+    private lateinit var tasksViewModel: TasksViewModel
+
+    @Before
+    fun setupViewModel() {
+        tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
+    }
+
     @Test
     fun addNewTask_setsNewTaskEvent() {
-        // Given a fresh ViewModel
-        val tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
-
         // When adding a new task
         tasksViewModel.addNewTask()
 
@@ -36,11 +42,8 @@ class TasksViewModelTest : TestCase() {
     @Test
     fun setFilterAllTasks_tasksAddViewVisible() {
 
-        val tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
-
         tasksViewModel.setFiltering((TasksFilterType.ALL_TASKS))
 
         assertThat(tasksViewModel.tasksAddViewVisible.getOrAwaitValue(), `is`(true))
-
     }
 }
