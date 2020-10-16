@@ -68,4 +68,11 @@ class FakeTestRepository: TasksRepository {
     override suspend fun deleteTask(taskId: String) {
         TODO("Not yet implemented")
     }
+
+    fun addTasks(vararg tasks: Task) {
+        for (task in tasks) {
+            tasksServiceData[task.id] = task
+        }
+        runBlocking { refreshTasks() }
+    }
 }
