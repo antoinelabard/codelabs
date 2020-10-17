@@ -3,21 +3,31 @@ package com.example.android.architecture.blueprints.todoapp.tasks
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.android.architecture.blueprints.todoapp.Event
+import com.example.android.architecture.blueprints.todoapp.R
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.DefaultTasksRepository
 import com.example.android.architecture.blueprints.todoapp.data.source.FakeTestRepository
 import com.example.android.architecture.blueprints.todoapp.getOrAwaitValue
 import junit.framework.TestCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.resetMain
 import org.hamcrest.CoreMatchers.not
 import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 class TasksViewModelTest {
+
+    @ExperimentalCoroutinesApi
+    val testDispatcher = TestCoroutineDispatcher()
 
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
@@ -28,6 +38,7 @@ class TasksViewModelTest {
     // Use a fake repository to be injected into the viewmodel
     private lateinit var tasksRepository: FakeTestRepository
 
+    @ExperimentalCoroutinesApi
     @Before
     fun setupViewModel() {
         tasksRepository = FakeTestRepository()
@@ -36,6 +47,13 @@ class TasksViewModelTest {
         val task3 = Task("Title3", "Description3", true)
         tasksRepository.addTasks(task1, task2, task3)
         tasksViewModel = TasksViewModel(tasksRepository)
+    }
+
+    @ExperimentalCoroutinesApi
+    @After
+    fun tearDownDispatcher() {
+        Dispatchers.resetMain()
+        testDispatcher.cleanupTestCoroutines()
     }
 
     @Test
