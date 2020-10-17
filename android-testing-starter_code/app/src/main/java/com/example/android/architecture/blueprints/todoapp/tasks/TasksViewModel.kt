@@ -230,12 +230,12 @@ class TasksViewModel(private val tasksRepository: TasksRepository) : ViewModel()
     fun refresh() {
         _forceUpdate.value = true
     }
+}
 
-    @Suppress("UNCHECKED_CAST")
-    class TasksViewModelFactory (
-            private val tasksRepository: TasksRepository
-    ) : ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel> create(modelClass: Class<T>) =
-                (TasksViewModel(tasksRepository) as T)
-    }
+@Suppress("UNCHECKED_CAST")
+class TasksViewModelFactory (
+        private val tasksRepository: TasksRepository
+) : ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>) =
+            (TasksViewModel(tasksRepository) as T)
 }

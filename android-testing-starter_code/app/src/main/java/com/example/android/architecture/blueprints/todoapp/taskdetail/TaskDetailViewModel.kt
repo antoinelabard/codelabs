@@ -119,12 +119,12 @@ class TaskDetailViewModel(private val tasksRepository: TasksRepository) : ViewMo
     private fun showSnackbarMessage(@StringRes message: Int) {
         _snackbarText.value = Event(message)
     }
+}
 
-    @Suppress("UNCHECKED_CAST")
-    class TaskDetailViewModelFactory (
-            private val tasksRepository: TasksRepository
-    ) : ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel> create(modelClass: Class<T>) =
-                (TaskDetailViewModel(tasksRepository) as T)
-    }
+@Suppress("UNCHECKED_CAST")
+class TaskDetailViewModelFactory (
+        private val tasksRepository: TasksRepository
+) : ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>) =
+            (TaskDetailViewModel(tasksRepository) as T)
 }
