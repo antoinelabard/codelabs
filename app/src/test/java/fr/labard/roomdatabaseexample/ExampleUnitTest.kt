@@ -1,4 +1,4 @@
-package fr.labard.alertdialogexample
+package fr.labard.roomdatabaseexample
 
 import org.junit.Test
 
