@@ -1,4 +1,4 @@
-package fr.labard.alertdialogexample
+package fr.labard.serviceexample
 
 import org.junit.Test
 
