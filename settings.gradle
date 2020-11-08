@@ -1,2 +1,2 @@
-rootProject.name='Alert Dialog Example'
 include ':app'
+rootProject.name = "LocationServiceExample"
