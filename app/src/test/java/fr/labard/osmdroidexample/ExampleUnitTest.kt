@@ -1,4 +1,4 @@
-package fr.labard.alertdialogexample
+package fr.labard.osmdroidexample
 
 import org.junit.Test
 
