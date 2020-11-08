@@ -1,4 +1,4 @@
-package fr.labard.alertdialogexample
+package fr.labard.locationtrackertest2
 
 import org.junit.Test
 
