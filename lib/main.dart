@@ -39,7 +39,7 @@ class FriendlyChatApp extends StatelessWidget {
 class ChatMessage extends StatelessWidget {
   ChatMessage({this.text, this.animationController});
   final String text;
-  String _name = 'Antoine Labard';
+  final String _name = 'Antoine Labard';
   final AnimationController animationController;
   @override
   Widget build(BuildContext context) {
