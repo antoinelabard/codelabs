@@ -46,8 +46,7 @@ class PlainOldActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding: PlainActivityBinding = DataBindingUtil.setContentView(this, R.layout.plain_activity)
-        binding.name = "Your name"
-        binding.lastName = "Your last name"
+        binding.viemodel = viewModel
     }
 
     /**
