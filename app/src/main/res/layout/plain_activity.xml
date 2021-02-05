@@ -142,6 +142,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/like_button"
                 app:layout_constraintTop_toBottomOf="@+id/like_button"
-                tools:progressBackgroundTint="@android:color/darker_gray"/>
+                tools:progressBackgroundTint="@android:color/darker_gray"
+                app:hideIfZero="@{viewmodel.likes}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
