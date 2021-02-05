@@ -68,7 +68,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintVertical_chainStyle="packed"/>
+                app:layout_constraintVertical_chainStyle="packed"
+                app:popularityIcon="@{viewmodel.popularity}"/>
 
         <TextView
                 android:id="@+id/likes"
@@ -143,6 +144,9 @@
                 app:layout_constraintStart_toStartOf="@+id/like_button"
                 app:layout_constraintTop_toBottomOf="@+id/like_button"
                 tools:progressBackgroundTint="@android:color/darker_gray"
-                app:hideIfZero="@{viewmodel.likes}"/>
+                app:hideIfZero="@{viewmodel.likes}"
+                app:progressScaled="@{viewmodel.likes}"
+                android:max="@{100}"
+                app:progressTint="@{viewmodel.popularity}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
